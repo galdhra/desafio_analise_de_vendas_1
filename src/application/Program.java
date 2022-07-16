@@ -48,10 +48,11 @@ public class Program {
 
 			System.out.println();
 
+			String name = "Logan";
+
 			double tLogan = list.stream()
-					.filter((x -> x.getSeller().charAt(0) == 'L'))
-					.filter(x -> x.getMonth() == 1 || x.getMonth() == 7)
-					.map(x -> x.getTotal())
+					.filter((x -> x.getSeller().toUpperCase().matches(name.toUpperCase())))
+					.filter(x -> x.getMonth() == 1 || x.getMonth() == 7).map(x -> x.getTotal())
 					.reduce(0.0, (x, y) -> x + y);
 
 			System.out.printf("Valor total vendido pelo vendedor Logan nos meses 1 e 7 = %.2f", tLogan);
